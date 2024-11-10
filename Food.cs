@@ -11,6 +11,7 @@ namespace OOP_ZooSim_Opgave
         private string name;
         private Diet diet;
         private int saturation;
+        private static Random rng = new Random();
 
         public int Saturation { get => saturation; }
         public Diet Diet { get => diet; }
@@ -22,7 +23,7 @@ namespace OOP_ZooSim_Opgave
             this.saturation = saturation;
             this.diet = diet;
         }
-        public static Food Generate(Random rng)
+        public static Food Generate()
         {
             string[] fodderItems = new string[]
             {
@@ -50,15 +51,15 @@ namespace OOP_ZooSim_Opgave
                 }
             }
             int index = rng.Next(0, fodderItems.Length - 1);
-            return new Food(fodderItems[index], rng.Next(1, 25), dietType[index]);
+            return new Food(fodderItems[index], rng.Next(20, 76), dietType[index]);
         }
-        public static Food[] Generate(Random rng, int amount)
+        public static Food[] Generate(int amount)
         {
             if (amount > 20) amount = 20;
             Food[] foods = new Food[amount];
             for (int i = 0; i < amount; i++)
             {
-                Food food = Generate(rng);
+                Food food = Generate();
                 if (!foods.Contains<Food>(food))
                 {
                     foods[i] = food;

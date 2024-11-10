@@ -5,6 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_ZooSim_Opgave"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="window"/>
+        Title="ZooSim" Height="470" Width="840" Background="Black" Initialized="Window_Initialized" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize">
+    <Grid x:Name="window">
+        <TabControl Background="Black" BorderBrush="Black">
+            <TabItem x:Name="ZooTab" Header="Zoo">
+                <Grid x:Name="ZooWindow" Background="#FF5A5A5A" Height="434" Margin="0,0,-1,0">
+                    <ComboBox x:Name="Zookeepers" HorizontalAlignment="Left" Margin="157,34,0,0" VerticalAlignment="Top" Width="118" SelectionChanged="ChoiceBox1_SelectionChanged"/>
+                    <ComboBox x:Name="Action" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="117"/>
+                    <ComboBox x:Name="AnimalPens" HorizontalAlignment="Left" Margin="307,34,0,0" VerticalAlignment="Top" Width="118"/>
+                    <Label x:Name="LabelBox2" Content="Action" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.526,0.533"/>
+                    <Label x:Name="LabelBox1" Content="Zookeeper" HorizontalAlignment="Left" Margin="157,8,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label x:Name="LabelBox3" Content="Animal Pen ID" HorizontalAlignment="Left" Margin="307,8,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Border x:Name="ContentWindow1" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="59" Margin="469,10,0,0" VerticalAlignment="Top" Width="155">
+                        <TextBox x:Name="Con1Label" TextWrapping="Wrap" Text="Zookeeper Info" TextChanged="TextBox_TextChanged" IsReadOnly="True"/>
+                    </Border>
+                    <Border x:Name="ContentWindow2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="114" Margin="629,10,0,0" VerticalAlignment="Top" Width="155">
+                        <TextBox x:Name="Con2Label" TextWrapping="Wrap" Text="Animal Info" IsReadOnly="True"/>
+                    </Border>
+                    <Border x:Name="ContentWindow4" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="142" Margin="629,254,0,0" VerticalAlignment="Top" Width="155">
+                        <TextBox x:Name="Con5Label" TextWrapping="Wrap" Text="Fodder Info" IsReadOnly="True" TextChanged="Con5Label_TextChanged"/>
+                    </Border>
+                    <Border x:Name="ContentWindow3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="469,74,0,0" VerticalAlignment="Top" Width="155">
+                        <TextBox x:Name="Con3Label" TextWrapping="Wrap" Text="Action Info" IsReadOnly="True"/>
+                    </Border>
+                    <Label x:Name="LabelBox1_Copy" Content="Animal&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label x:Name="LabelBox1_Copy1" Content="Fodder" HorizontalAlignment="Left" Margin="157,56,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <ComboBox x:Name="Animals" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="118" SelectionChanged="ChoiceBox1_SelectionChanged"/>
+                    <ComboBox x:Name="Fodder" HorizontalAlignment="Left" Margin="157,82,0,0" VerticalAlignment="Top" Width="118" SelectionChanged="ChoiceBox1_SelectionChanged"/>
+                    <Button x:Name="CommitButton" Content="Commit Action" HorizontalAlignment="Left" Margin="307,361,0,0" VerticalAlignment="Top" Height="35" Width="118" Click="Button_Click"/>
+                    <Border x:Name="ContentWindow4_Copy" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="120" Margin="629,129,0,0" VerticalAlignment="Top" Width="155">
+                        <TextBox x:Name="Con4Label" TextWrapping="Wrap" Text="Animal Pen Info" IsReadOnly="True"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

@@ -25,5 +25,9 @@ namespace OOP_ZooSim_Opgave
         {
             animals.Remove(animal);
         }
+        public Animal[] GetAnimals()
+        {
+            return animals.ToArray();
+        }
     }
 }

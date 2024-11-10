@@ -20,9 +20,35 @@ namespace OOP_ZooSim_Opgave
     /// </summary>
     public partial class MainWindow : Window
     {
+        ZooManager zooManager;
         public MainWindow()
         {
             InitializeComponent();
+            zooManager = new ZooManager(this);
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+        }
+
+        private void ChoiceBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Con5Label_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -9,9 +9,6 @@ namespace OOP_ZooSim_Opgave
     internal class Bird : Animal, IFlyable
     {
         private bool isFlying;
-        public Bird(string name, Diet diet) : base(name, diet)
-        {
-        }
 
         public bool IsFlying { get => isFlying; }
 
@@ -20,9 +17,12 @@ namespace OOP_ZooSim_Opgave
             isFlying = true;
         }
 
-        public override Animal Generate(Random rng)
+        public override void Generate()
         {
-            return new Bird(petNames[rng.Next(0, petNames.Length - 1)], Diet.Herbivore);
+            this.name = petNames[rng.Next(0, petNames.Length)];
+            this.diet = Diet.Omnivore;
+            this.health = 100;
+            this.hunger = 0;
         }
 
         public void Land()

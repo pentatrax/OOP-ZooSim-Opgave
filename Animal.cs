@@ -4,6 +4,7 @@ namespace OOP_ZooSim_Opgave
 {
     internal abstract class Animal
     {
+        protected static Random rng = new Random();
         protected string name;
         protected int health;
         protected int hunger;
@@ -37,11 +38,15 @@ namespace OOP_ZooSim_Opgave
             this.hunger = 0;
             this.mood = Mood.Relaxed;
         }
+        public Animal()
+        {
+            Generate();
+        }
 
         public virtual bool Eat(Food food)
         {
             bool ate = false;
-            if (food.Diet == diet && hunger > 0)
+            if ((food.Diet == diet || diet == Diet.Omnivore) && hunger > 0)
             {
                 Hunger -= food.Saturation;
                 ate = true;
@@ -59,20 +64,20 @@ namespace OOP_ZooSim_Opgave
         }
         public void Sleep()
         {
+            health -= 5;
             if (Hunger < 100)
             {
                 Hunger += 100 - Health;
                 Health += Hunger;
-                Mood -= 1;
             }
             else
             {
-
                 Health -= 10;
-                Mood += 1;
+
             }
+            mood = (Mood)(Hunger / 25f);
         }
-        public abstract Animal Generate(Random rng);
+        public abstract void Generate();
 
     }
 }

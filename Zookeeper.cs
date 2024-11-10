@@ -11,6 +11,10 @@ namespace OOP_ZooSim_Opgave
         private string name;
         private int age;
         private Diet diet;
+        private static Random rng = new Random();
+
+        public string Name { get => name; }
+        public int Age { get => age; }
 
         public Zookeeper(string name, int age, Diet diet)
         {
@@ -23,7 +27,7 @@ namespace OOP_ZooSim_Opgave
         {
             return animal.Eat(food);
         }
-        public static Zookeeper Generate(Random rng)
+        public static Zookeeper Generate()
         {
             string[] zooKeeperNames = {
                 "Alex Thompson", "Jamie Patel", "Morgan Lee", "Chris Rivera", "Taylor Kim",
@@ -31,14 +35,16 @@ namespace OOP_ZooSim_Opgave
                 "Quinn Adams", "Avery Smith", "Harper Brown", "Logan Clark", "Cameron Lewis",
                 "Peyton Garcia", "Skylar Robinson", "Rowan White", "Sydney Young", "Emerson Bell"
             };
-            return new Zookeeper(zooKeeperNames[rng.Next(0, zooKeeperNames.Length - 1)], rng.Next(0, 99), Diet.Omnivore);
+            string name = zooKeeperNames[rng.Next(0, zooKeeperNames.Length)].Split(' ')[rng.Next(0, 2)];
+            name += " "+zooKeeperNames[rng.Next(0, zooKeeperNames.Length)].Split(' ')[rng.Next(0, 2)];
+            return new Zookeeper(name, rng.Next(16, 100), Diet.Omnivore);
         }
-        public static Zookeeper[] Generate(Random rng, int amount)
+        public static Zookeeper[] Generate(int amount)
         {
             Zookeeper[] zookeepers = new Zookeeper[amount];
             for (int i = 0; i < amount; i++)
             {
-                zookeepers[i] = Generate(rng);
+                zookeepers[i] = Generate();
             }
             return zookeepers;
         }

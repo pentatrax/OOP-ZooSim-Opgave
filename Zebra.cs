@@ -8,13 +8,12 @@ namespace OOP_ZooSim_Opgave
 {
     internal class Zebra : Animal
     {
-        public Zebra(string name, Diet diet) : base(name, diet)
+        public override void Generate()
         {
-        }
-
-        public override Animal Generate(Random rng)
-        {
-            return new Zebra(petNames[rng.Next(0, petNames.Length - 1)], Diet.Herbivore);
+            this.name = petNames[rng.Next(0, petNames.Length)];
+            this.diet = Diet.Herbivore;
+            this.health = 100;
+            this.hunger = 0;
         }
 
         public void Bark()
